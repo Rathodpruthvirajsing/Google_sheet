@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Excel Sheet Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="toolbar">
+    <button onclick="document.execCommand('copy')">📋 Copy</button>
+    <button onclick="document.execCommand('cut')">✂ Cut</button>
+    <button onclick="document.execCommand('paste')">📋 Paste</button>
+
+    <select id="fontSelect" onchange="changeFont(this.value)">
+      <option value="monospace">Monospace</option>
+      <option value="Arial">Arial</option>
+      <option value="Verdana">Verdana</option>
+    </select>
+
+    <select id="fontSizeSelect" onchange="changeFontSize(this.value)">
+      <option value="1">10</option>
+      <option value="2">12</option>
+      <option value="3">14</option>
+      <option value="4">16</option>
+      <option value="5">18</option>
+    </select>
+
+    <button onclick="format('bold')"><b>B</b></button>
+    <button onclick="format('italic')"><i>I</i></button>
+    <button onclick="format('underline')"><u>U</u></button>
+    <button onclick="format('justifyLeft')">👈</button>
+    <button onclick="format('justifyCenter')">🤟</button>
+    <button onclick="format('justifyRight')">👉</button>
+    <button onclick="format('removeFormat')">❌</button>
+
+    <label>Text: <input type="color" onchange="changeColor(this.value, 'color')"></label>
+    <label>Background: <input type="color" onchange="changeColor(this.value, 'backgroundColor')"></label>
+
+    <button onclick="addNewSheet()">+ New Sheet</button>
+    <button onclick="exportToCSV()">⬇ Export CSV</button>
+    <input type="file" id="importFile" accept=".csv" />
+
+  </div>
+
+  <div id="sheet-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
